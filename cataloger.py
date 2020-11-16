@@ -9,19 +9,49 @@ import JSONImport import *
 
 class Cataloger:
   def __init__(self, db_data, url, s):
-    pass
+    self.db_data = db_data
+    self.url = url
+    self.s = s
 
   def cataloging(self):
     pass
   
   def cut_scene(self):
-    pass
+    FMT = '%H:%M:%S.%f'
+    duration = datetime.strptime(end_time, FMT) - datetime.strptime(start_time, FMT)
+    scene_path = save_path + ("/SCENE_%010d.mp4" % sceneid)
+
+    # cmd = "ffmpeg -i {0} -ss {1} -c copy -t {2} {3}".format(video_path, start_time, duration, scene_path)
+    # subprocess.call(cmd, shell=True)
+
+    return scene_path
   
   def get_shot_info(self):
-    pass
+    cmd = "ffmpeg -i {0} -filter:v \"select='gt(scene,0.24)',showinfo\" -f null - 2> {1}".format(video_path, save_path + '/tmp.log')
+    subprocess.call(cmd, shell=True)
+
+    cmd2 = "grep showinfo {0} | grep pts_time:[0-9.]* -o | grep '[0-9]*\\.[0-9]*' -o > {1}".format(save_path + '/tmp.log', save_path + '/tmp.txt')
+    subprocess.call(cmd2, shell=True)
   
   def get_video_info(self):
-    pass
+    f = open(save_path + "/tmp.log", "r")
+    duration = ""
+    fps = 0.0
+
+    while True:
+      line = f.readline()
+      if not line: break
+
+      if line.find("Duration: ") != -1:
+        duration = line.replace(", ", "@").replace(": ", "@").split("@")[1]
+
+      elif line.find(" fps,") != -1:
+        t = line.split(" fps,")[0]
+        fps = float(t[t.rfind(" ") + 1:])
+        break
+    f.close()
+
+    return duration, fps
   
   def calcStep(self):
     return int(video_fps / fps)
