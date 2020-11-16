@@ -30,7 +30,7 @@ class Cataloger:
     pass
   
   def second_to_ms(self):
-    pass
+    return int(float(second) * 1000)
   
   def time_to_ms(self):
     times = time.split(":")
