@@ -24,10 +24,15 @@ class Cataloger:
     pass
   
   def calcStep(self):
-    pass
+    return int(video_fps / fps)
   
   def my_round(self):
-    pass
+    x = num - int(num)
+
+    if x >= 0.9:
+      return int(num) + 1
+    else:
+      return int(num)
   
   def second_to_ms(self):
     return int(float(second) * 1000)
