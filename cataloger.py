@@ -45,7 +45,11 @@ class Cataloger:
     return "%02d:%02d:%02d" % (h, m, s)
   
   def extract_all(self):
-    pass
+    if not os.path.exists(save_path):
+      os.makedirs(save_path)
+
+    cmd = "ffmpeg -i {0} -ss 00:00:00.000 -qscale:v 2 {1}/IMAGE_%010d.jpg".format(video_path, save_path)
+    subprocess.call(cmd, shell=True)
   
   def post_data(self):
     params = {"status": 1, "progress": number, "error_msg": "", "startFlag": "N", "req_fps": 0}
