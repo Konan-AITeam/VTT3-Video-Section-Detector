@@ -36,7 +36,13 @@ class Cataloger:
     pass
   
   def second_to_time(self):
-    pass
+    second = int(second)
+
+    h = second // (60 * 60)
+    m = (second // 60) % 60
+    s = second % 60
+
+    return "%02d:%02d:%02d" % (h, m, s)
   
   def extract_all(self):
     pass
