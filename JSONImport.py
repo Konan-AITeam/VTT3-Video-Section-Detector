@@ -1,10 +1,7 @@
 import json
 
 def importJSON(path):
-  f = open(path, 'rt', encoding='UTF8')
+  with open(path, 'rt', encoding='UTF8') as data_file:
+    data = json.load(data_file)
   
-  json_data = json.load(f)
-  
-  f.close()
-  
-  return json_data
+  return data
