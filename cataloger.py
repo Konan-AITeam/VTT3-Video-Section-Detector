@@ -42,6 +42,7 @@ class Cataloger:
     pass
   
   def post_data(self):
-    pass
-  
-  
+    params = {"status": 1, "progress": number, "error_msg": "", "startFlag": "N", "req_fps": 0}
+    response = self.s.post(url=self.url, data=params)
+    if response.status_code != 200:
+      print("ERROR : failed the post request about '%d' progress" % number)
