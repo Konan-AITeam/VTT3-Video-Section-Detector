@@ -14,8 +14,40 @@ class Cataloger:
     self.s = s
 
   def cataloging(self):
-    pass
-  
+    save_path = self.db_data[1]
+    video_full_path = self.db_data[2]
+    video_id = video_full_path.split("/")[video_full_path.count("/") - 1]
+    save_path = save_path
+    
+    if not os.path.exists(video_full_path):
+      raise Exception("No videos found.")
+
+    if not os.path.exists(save_path):
+      os.makedirs(save_path)
+
+    if len(os.listdir(save_path)) != 0:
+      rmtree(save_path)
+      if not os.path.exists(save_path):
+        os.makedirs(save_path)
+    
+    self.post_data(10)
+    self.extract_all(video_full_path, save_path + "/tmp")
+    self.post_data(60)
+    self.get_shot_info(video_full_path, save_path)
+    
+    fps = video_fps
+    if int(data["fps"]) != 0:
+      fps = int(data["fps"]
+                
+    self.post_data(95)
+
+    with open(video_full_path[:-4] + "_result.json", 'w', encoding='UTF8') as file:
+      json.dump(result, file, ensure_ascii=False)
+
+    os.remove(save_path + "/tmp.log")
+    os.remove(save_path + "/tmp.txt")
+    rmtree(save_path + "/tmp")
+                
   def cut_scene(self):
     FMT = '%H:%M:%S.%f'
     duration = datetime.strptime(end_time, FMT) - datetime.strptime(start_time, FMT)
