@@ -1,6 +1,6 @@
 # DB 접속 정보
 
-ip = ""
+ip = "0.0.0.0"
 port = ""
 dbname = ""
 user = ""
@@ -8,7 +8,7 @@ password = ""
 
 conn_string = "host=%s port=%s dbname =%s user=%s password=%s" % (ip, port, dbname, user, password)
 
-sql_string = "SELECT * FROM vttm_catalogque_tb where status='wait' and (cancle_yn = 'n' or cancle_yn = 'N') ORDER BY videoid ASC limit 1"
+sql_string = "SELECT * FROM TABLE_NAME where status='wait' and (cancle_yn = 'n' or cancle_yn = 'N') ORDER BY videoid ASC limit 1"
 
 
 # request 정보
