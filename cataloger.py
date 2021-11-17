@@ -102,7 +102,7 @@ class Cataloger:
   def time_to_ms(self):
     times = time.split(":")
 
-    return (((int(times[0]) * 60 * 60) + (int(times[1]) * 60) + int(times[2].split(";")[0])) * 1000) + int(int(times[2].split(";")[1]) / video_fps * 1000)
+    return (((int(times[0]) * 3600) + (int(times[1]) * 60) + int(times[2].split(";")[0])) * 1000) + int(int(times[2].split(";")[1]) / video_fps * 1000)
   
   def second_to_time(self):
     second = int(second)
