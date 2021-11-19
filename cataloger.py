@@ -1,10 +1,9 @@
-import os
 import copy
+from datetime import datetime
+from JSONImport import *
+import os
 import requests
-
-import shutil import copy2, rmtree
-import datetime import datetime
-import JSONImport import *
+from shutil import copy2, rmtree
 
 
 class Cataloger:
