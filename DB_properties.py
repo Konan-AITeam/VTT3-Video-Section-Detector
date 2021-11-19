@@ -11,7 +11,7 @@ conn_string = "host=%s port=%s dbname =%s user=%s password=%s" % (ip, port, dbna
 sql_string = "SELECT * FROM TABLE_NAME where status='wait' and (cancle_yn = 'n' or cancle_yn = 'N') ORDER BY videoid ASC limit 1"
 
 
-# request 정보
+# request 정보 
 
 web_ip = ""
 web_port = ""
