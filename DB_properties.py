@@ -1,5 +1,4 @@
 # DB 접속 정보
-
 ip = "0.0.0.0"
 port = ""
 dbname = ""
@@ -12,7 +11,6 @@ sql_string = "SELECT * FROM TABLE_NAME where status='wait' and (cancle_yn = 'n' 
 
 
 # request 정보
-
 web_ip = ""
 web_port = ""
 web_project = ""
