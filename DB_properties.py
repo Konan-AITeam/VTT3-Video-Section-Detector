@@ -11,9 +11,11 @@ sql_string = "SELECT * FROM TABLE_NAME where status='wait' and (cancle_yn = 'n' 
 
 
 # request 정보
+
 web_ip = ""
 web_port = ""
 web_project = ""
 
 base_url = "http://%s:%s/%s/" % (web_ip, web_port, web_project)
 server_url = "http://%s:%s/%s/content/retry/catalog/" % (web_ip, web_port, web_project)
+

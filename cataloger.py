@@ -1,10 +1,9 @@
-import os
 import copy
+from datetime import datetime
+from JSONImport import *
+import os
 import requests
-
-import shutil import copy2, rmtree
-import datetime import datetime
-import JSONImport import *
+from shutil import copy2, rmtree
 
 
 class Cataloger:
@@ -54,7 +53,7 @@ class Cataloger:
     scene_path = save_path + ("/SCENE_%010d.mp4" % sceneid)
 
     # cmd = "ffmpeg -i {0} -ss {1} -c copy -t {2} {3}".format(video_path, start_time, duration, scene_path)
-    # subprocess.call(cmd, shell=True)
+    # subprocess.call(cmd, shell=True) 
 
     return scene_path
   
@@ -125,3 +124,5 @@ class Cataloger:
     response = self.s.post(url=self.url, data=params)
     if response.status_code != 200:
       print("ERROR : failed the post request about '%d' progress" % number)
+
+                
