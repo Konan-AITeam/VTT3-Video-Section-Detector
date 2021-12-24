@@ -18,6 +18,3 @@ web_project = ""
 
 base_url = "http://%s:%s/%s/" % (web_ip, web_port, web_project)
 server_url = "http://%s:%s/%s/content/retry/catalog/" % (web_ip, web_port, web_project)
-
-   
-  
