@@ -11,6 +11,6 @@ VTT 3세부에서 만든 비디오 구간 검출기
 
 - VTT 메타데이터 태깅도구와 연동되어 작동
 
-- DB_properties.py 에 정보 수정 후, 사용 가능 
+- DB_properties.py 파일 수정 후 사용 가능 
 
 - Complete
