@@ -14,4 +14,3 @@ VTT 3세부에서 만든 비디오 구간 검출기
 - DB_properties.py 에 정보 수정 후, 사용 가능 
 
 - Complete
-- 
