@@ -14,3 +14,6 @@ VTT 3세부에서 만든 비디오 구간 검출기
 - DB_properties.py 파일 수정 후 사용 가능 
 
 - Complete
+
+## ffmpeg 사용 방법
+- 참고) https://ffmpeg.org/ffmpeg.html
